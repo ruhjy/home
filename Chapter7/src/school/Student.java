@@ -14,6 +14,10 @@ public class Student {
 		this.studentName = studentName;
 		this.majorSubject = majorSubject;
 	}
+	
+	public void addSubjectScore(Score score) {
+		scoreList.add(score);
+	}
 
 	public int getStudentId() {
 		return studentId;
