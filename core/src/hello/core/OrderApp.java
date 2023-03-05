@@ -9,13 +9,19 @@ public class OrderApp {
 		MemberService memberService = new MemberServiceImpl();
 		OrderService orderService = new OrderServiceImpl();
 		
-		Long memberId = 1L;
-		Member member = new Member(memberId, "memberA", Grade.VIP);
+		Long memberId1 = 1L;
+		Long memberId2 = 2L;
 		
-		memberService.join(member);
-		Order order = orderService.createOrder(memberId, "itemA", 20000);
+		Member member1 = new Member(memberId1, "memberA", Grade.VIP);
+		Member member2 = new Member(memberId2, "memberB", Grade.BASIC);
 		
-		System.out.println("order = " + order);
-		System.out.println("discountPrice = " + order.getDiscountPrice());
+		memberService.join(member1);
+		memberService.join(member2);
+		Order order1 = orderService.createOrder(memberId1, "itemA", 20000);
+		Order order2 = orderService.createOrder(memberId2, "itemB", 20000);
+		
+		System.out.println("order1_vip = " + order1);
+		System.out.println("order2_basic = " + order2);
+		
 	}
 }
